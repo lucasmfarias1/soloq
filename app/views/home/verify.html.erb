@@ -1,0 +1,7 @@
+Key: <%= @key %>
+<%= form_for @user, url: {action: 'confirm_verify'} do |f| %>
+  <%= f.label :summoner_name %>
+  <%= f.text_field :summoner_name %>
+
+  <%= f.submit %>
+<% end %>
