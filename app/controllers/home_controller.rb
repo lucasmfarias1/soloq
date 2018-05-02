@@ -5,20 +5,24 @@ class HomeController < ApplicationController
 
   def verify
     @user = current_user
-    session[:key] ||= generate_key
-    @key = session[:key]
+
+    unless @user.verification_key
+      @user.verification_key = generate_key
+      @user.save
+    end
+    @key = @user.verification_key
   end
 
   def confirm_verify
     summoner = params[:user][:summoner_name]
-    @key = session[:key]
+    @user = current_user
+    @key = @user.verification_key
 
     unless @key == summoner_verification_code(summoner)
       redirect_to verify_path, notice: 'yikes'
       return
     end
 
-    @user = current_user
     @user.summoner_name = summoner
     if @user.save
       redirect_to root_path, notice: 'it worked!'

@@ -6,6 +6,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       # Verified summoner name
       t.string :summoner_name
 
+      # Random verification key
+      t.string :verification_key
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
