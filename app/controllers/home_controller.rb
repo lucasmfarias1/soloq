@@ -30,4 +30,5 @@ class HomeController < ApplicationController
       redirect_to verify_path, notice: 'yikes'
     end
   end
+  
 end

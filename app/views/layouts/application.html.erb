@@ -4,26 +4,60 @@
     <title>Soloq</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div id="wrapper">
 
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <%= link_to 'SoloQ', root_path %>
+          </li>
+          <li>
+            <%= link_to 'Home', root_path %>
+          </li>
+          <li>
+            <%= link_to 'Verify', verify_path %>
+          </li>
+        </ul>
+      </div>
+      <!-- /#sidebar-wrapper -->
 
-    <% if current_user %>
-      <%= link_to 'Home', root_path %>
-      <%= link_to 'Verify', verify_path %>
-      <%= current_user.email %> -
-      <%= current_user.summoner_name %>
-    <% else %>
-      <%= link_to 'Login', new_user_session_path %>
-    <% end %>
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">T</a>
 
-    <%= yield %>
+          <% if current_user %>
+            <%= current_user.email %> -
+            <%= current_user.summoner_name %>
+          <% else %>
+            <%= link_to 'Login', new_user_session_path %>
+          <% end %>
 
+          <%= yield %>
+
+        </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
   </body>
 </html>
