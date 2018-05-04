@@ -39,10 +39,16 @@
 
           <% if current_user %>
             <%= current_user.email %> -
-            <%= current_user.summoner_name %>
+            <%= current_user.summoner_name %> -
+            <%= current_user.summoner_id %> -
+            <%= current_user.tier %> -
+            <%= current_user.rank %>
           <% else %>
             <%= link_to 'Login', new_user_session_path %>
           <% end %>
+
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
 
           <%= yield %>
 
