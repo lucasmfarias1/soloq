@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   get '/verify', to: 'home#verify'
   patch '/verify', to: 'home#confirm_verify'
+  delete '/verify', to: 'home#delete_verify'
 end

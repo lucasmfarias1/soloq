@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Soloq</title>
+    <title>SoloQ</title>
     <%= csrf_meta_tags %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,6 +28,24 @@
           <li>
             <%= link_to 'Verify', verify_path %>
           </li>
+          <li>
+            <%= link_to 'Perfil', '#' %>
+          </li>
+          <li>
+            <div id="sidebar-card">
+              <% if current_user %>
+                <h3><%= current_user.summoner_name %></h3>
+
+                <% if current_user.tier %>
+                  <%= image_tag "#{current_user.tier.downcase}_badge.png", size: '30x30' %>
+                  <%= current_user.tier %> <%= current_user.rank %>
+                <% end %>
+
+              <% else %>
+                <%= link_to 'Login', new_user_session_path %>
+              <% end %>
+            </div>
+          </li>
         </ul>
       </div>
       <!-- /#sidebar-wrapper -->
@@ -41,8 +59,9 @@
             <%= current_user.email %> -
             <%= current_user.summoner_name %> -
             <%= current_user.summoner_id %> -
-            <%= current_user.tier %> -
-            <%= current_user.rank %>
+            <%= current_user.tier %>
+            <%= current_user.rank %> -
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to 'Login', new_user_session_path %>
           <% end %>

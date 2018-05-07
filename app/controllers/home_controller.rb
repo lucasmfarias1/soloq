@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   include HomeHelper
+
   def index
+    @users = User.all
   end
 
   def verify
@@ -32,6 +34,19 @@ class HomeController < ApplicationController
       redirect_to root_path, notice: 'Changes saved!'
     else
       redirect_to verify_path, notice: 'Failed to save.'
+    end
+  end
+
+  def delete_verify
+    @user = current_user
+    @user.summoner_name = nil
+    @user.summoner_id = nil
+    @user.rank = nil
+    @user.tier = nil
+    if @user.save
+      redirect_to verify_path, notice: 'Summoner desvinculado com sucesso.'
+    else
+      redirect_to verify_path, notice: 'Alguma coisa deu errado.'
     end
   end
 

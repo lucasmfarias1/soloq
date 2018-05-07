@@ -1,9 +1,15 @@
 <h1>Verify</h1>
 
-Key: <%= @key %>
-<%= form_for @user, url: {action: 'confirm_verify'} do |f| %>
-  <%= f.label :summoner_name %>
-  <%= f.text_field :summoner_name %>
+<% unless @user.summoner_name %>
+  Código: <%= @key %>
 
-  <%= f.submit %>
+  <%= form_for @user, url: {action: 'confirm_verify'} do |f| %>
+    <%= f.label :summoner_name %>
+    <%= f.text_field :summoner_name %>
+
+    <%= f.submit %>
+  <% end %>
+  <%= image_tag 'verify_guide2.jpg', id: 'verify_guide' %>
+<% else %>
+  <%= link_to 'Desvicunlar Summoner', verify_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>

@@ -1,1 +1,7 @@
 <h1>Home#index</h1>
+
+<% @users.each do |user| %>
+  <%= user.summoner_name %> -
+  <%= user.tier %>
+  <br>
+<% end %>

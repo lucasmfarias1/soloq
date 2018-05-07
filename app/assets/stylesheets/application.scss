@@ -24,7 +24,7 @@ body {
   height: 100%;
   margin-left: -250px;
   overflow-y: auto;
-  background: #000;
+  background: #133;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -132,4 +132,18 @@ body {
     margin-left: 0;
     margin-top: 0;
   }
+}
+
+
+ // For home
+
+#sidebar-card {
+  text-align: center;
+  color: #eee;
+}
+
+ // For verify
+
+#verify_guide {
+  width: 100%;
 }

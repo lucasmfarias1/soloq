@@ -22,8 +22,17 @@ module HomeHelper
   def get_user_tier_rank(user)
     rank_string = open("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/#{user.summoner_id}?api_key=#{ENV["RIOT_KEY"]}").string
 
-    rank_hash = JSON.parse rank_string
-    [rank_hash[0]["tier"], rank_hash[0]["rank"]]
+    rank_array = JSON.parse rank_string
+
+    tier = nil
+    rank = nil
+    rank_array.each do |queue_hash|
+      next unless queue_hash["queueType"] == "RANKED_SOLO_5x5"
+      tier = queue_hash["tier"]
+      rank = queue_hash["rank"]
+    end
+
+    [tier, rank]
   end
 end
 
