@@ -37,7 +37,7 @@
                 <h3><%= current_user.summoner_name %></h3>
 
                 <% if current_user.tier %>
-                  <%= image_tag "#{current_user.tier.downcase}_badge.png", size: '30x30' %>
+                  <%= image_tag current_user.badge, size: '30x30' %>
                   <%= current_user.tier %> <%= current_user.rank %>
                 <% end %>
 
