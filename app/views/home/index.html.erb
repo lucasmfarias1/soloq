@@ -2,7 +2,7 @@
 
 <% @users.each do |user| %>
   <%= image_tag user.badge, size: '30x30' %>
-  <%= user.summoner_name %> -
-  <%= user.tier %>
+  <%= user.summoner_name %>
+  <span class="badge badge-secondary"><%= user.tier %> <%= user.rank %></span>
   <br>
 <% end %>

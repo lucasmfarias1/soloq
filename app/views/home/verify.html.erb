@@ -1,4 +1,4 @@
-<h1>Verify</h1>
+<h1>Vincular Summoner</h1>
 
 <% unless @user.summoner_name %>
   Código: <%= @key %>
@@ -7,9 +7,12 @@
     <%= f.label :summoner_name %>
     <%= f.text_field :summoner_name %>
 
-    <%= f.submit %>
+    <%= f.submit 'Vincular', class: 'btn btn-primary' %>
   <% end %>
+
+  <br>
+
   <%= image_tag 'verify_guide2.jpg', id: 'verify_guide' %>
 <% else %>
-  <%= link_to 'Desvicunlar Summoner', verify_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Desvicunlar Summoner', verify_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 <% end %>
