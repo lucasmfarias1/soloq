@@ -25,12 +25,15 @@
           <li>
             <%= link_to 'Home', root_path %>
           </li>
-          <li>
-            <%= link_to 'Vincular Summoner', verify_path %>
-          </li>
-          <li>
-            <%= link_to 'Meu Perfil', profile_path(current_user) %>
-          </li>
+
+          <% if current_user %>
+            <li>
+              <%= link_to 'Vincular Summoner', verify_path %>
+            </li>
+            <li>
+              <%= link_to 'Meu Perfil', profile_path(current_user) %>
+            </li>
+          <% end %>
           <li>
             <div id="sidebar-card">
               <% if current_user %>
