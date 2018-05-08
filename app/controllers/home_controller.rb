@@ -21,14 +21,14 @@ class HomeController < ApplicationController
     @user = current_user
     @key = @user.verification_key
 
-    summoner_id = get_summoner_id(summoner)
-    unless @key == get_summoner_verification_code(summoner_id)
+    summoner_id_name = get_summoner_id_name(summoner)
+    unless @key == get_summoner_verification_code(summoner_id_name[0])
       redirect_to verify_path, notice: 'Verification failed.'
       return
     end
 
-    @user.summoner_name = summoner
-    @user.summoner_id = summoner_id
+    @user.summoner_id = summoner_id_name[0]
+    @user.summoner_name = summoner_id_name[1]
     if @user.save
       update_rank(@user)
       redirect_to root_path, notice: 'Changes saved!'

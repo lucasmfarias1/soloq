@@ -6,12 +6,12 @@ module HomeHelper
     "soloq#{SecureRandom.hex(4)}"
   end
 
-  def get_summoner_id(summoner_name)
-    summoner_name.gsub!(' ', '%20')
-    by_name = open("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/#{summoner_name}?api_key=#{ENV["RIOT_KEY"]}").string
+  def get_summoner_id_name(summoner_name)
+    name = summoner_name.gsub(' ', '%20')
+    by_name = open("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/#{name}?api_key=#{ENV["RIOT_KEY"]}").string
 
     summoner_hash = JSON.parse by_name
-    summoner_hash["id"]
+    [summoner_hash["id"], summoner_hash["name"]]
   end
 
   def get_summoner_verification_code(summoner_id)
