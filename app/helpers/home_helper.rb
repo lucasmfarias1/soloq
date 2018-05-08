@@ -25,7 +25,7 @@ module HomeHelper
 
     rank_array = JSON.parse rank_string
 
-    tier = nil
+    tier = 'UNRANKED'
     rank = nil
     rank_array.each do |queue_hash|
       next unless queue_hash["queueType"] == "RANKED_SOLO_5x5"

@@ -1,0 +1,13 @@
+<%= @user.summoner_name %>
+<%= @user.tier %>
+<%= @user.rank %>
+<%= @user.email %>
+<%= @user.summoner_id %>
+<%= image_tag @user.badge %>
+
+<!-- <%= form_for @user, url: {action: 'update'} do |f| %>
+  <%= f.label :summoner_name %>
+  <%= f.text_field :summoner_name %>
+
+  <%= f.submit 'Change', class: 'btn btn-primary' %>
+<% end %> -->
