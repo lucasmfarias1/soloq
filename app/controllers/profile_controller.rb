@@ -3,13 +3,13 @@ class ProfileController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
 
-  def edit
-
-  end
-
   def update
-    # @user.summoner_name = params[:user][:summoner_name]
-    #
-    # redirect_to profile_path(current_user), notice: 'worked'
+    @user = current_user
+    @user.image = params[:user][:image]
+    if @user.save
+      redirect_to profile_path(current_user), notice: 'Imagem alterada com sucesso!'
+    else
+      redirect_to profile_path(current_user), notice: 'Arquivo invalido.'
+    end
   end
 end

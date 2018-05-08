@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180429220842) do
     t.string "verification_key"
     t.string "tier"
     t.string "rank"
+    t.string "image"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

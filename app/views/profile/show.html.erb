@@ -1,13 +1,26 @@
-<%= @user.summoner_name %>
-<%= @user.tier %>
-<%= @user.rank %>
+<h2>
+  <%= @user.summoner_name %>
+  <%= image_tag @user.badge, size: '40x40' %>
+</h2>
+
+<p>
+  <%= @user.tier %>
+  <%= @user.rank %>
+</p>
+
+<div id="display-picture" style="background-image: url('<%= @user.image.url %>');"></div>
+
+<% if @user == current_user %>
+  <div class="image-form">
+    <%= form_for @user do |f| %>
+      <%= f.label :image do %>
+        <%= f.hidden_field :image_cache %>
+        <%= f.file_field :image %>
+      <% end %>
+      <%= f.submit 'Upload Image', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+<% end %>
+
 <%= @user.email %>
 <%= @user.summoner_id %>
-<%= image_tag @user.badge %>
-
-<!-- <%= form_for @user, url: {action: 'update'} do |f| %>
-  <%= f.label :summoner_name %>
-  <%= f.text_field :summoner_name %>
-
-  <%= f.submit 'Change', class: 'btn btn-primary' %>
-<% end %> -->

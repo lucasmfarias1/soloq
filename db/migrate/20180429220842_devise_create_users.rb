@@ -10,6 +10,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :tier
       t.string :rank
 
+      # Display Picture
+      t.string :image
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

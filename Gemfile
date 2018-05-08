@@ -67,5 +67,10 @@ gem 'bootstrap', '~> 4.1.1'
 # jQuery
 gem 'jquery-rails'
 
+# Image upload and storage
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'file_validators'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

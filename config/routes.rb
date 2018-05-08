@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 
   resources :profile
   # patch '/profile', to: 'profile#edit'
+
+  get '/users/:id', :to => 'users#show', :as => :user
+  patch '/users/:id', to: 'profile#update'
 end
