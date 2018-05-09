@@ -1,11 +1,11 @@
 <h1>Vincular Summoner</h1>
 
-<% unless @user.summoner_name %>
+<% unless @profile.name %>
   Código: <%= @key %>
 
-  <%= form_for @user, url: {action: 'confirm_verify'} do |f| %>
-    <%= f.label :summoner_name %>
-    <%= f.text_field :summoner_name %>
+  <%= form_for @profile, url: {action: 'confirm_verify'} do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
     <%= f.submit 'Vincular', class: 'btn btn-primary' %>
   <% end %>
@@ -14,5 +14,5 @@
 
   <%= image_tag 'verify_guide2.jpg', id: 'verify_guide' %>
 <% else %>
-  <%= link_to "Desvincular '#{current_user.summoner_name}'", verify_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <%= link_to "Desvincular '#{@profile.name}'", verify_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 <% end %>

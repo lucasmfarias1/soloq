@@ -20,8 +20,8 @@ module HomeHelper
     verification_hash = JSON.parse by_id
   end
 
-  def get_user_tier_rank(user)
-    rank_string = open("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/#{user.summoner_id}?api_key=#{ENV["RIOT_KEY"]}").string
+  def get_user_tier_rank(profile)
+    rank_string = open("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/#{profile.lol_id}?api_key=#{ENV["RIOT_KEY"]}").string
 
     rank_array = JSON.parse rank_string
 

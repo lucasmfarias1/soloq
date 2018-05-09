@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @profile.name %>
+</p>
+
+<p>
+  <strong>Tier:</strong>
+  <%= @profile.tier %>
+</p>
+
+<p>
+  <strong>Rank:</strong>
+  <%= @profile.rank %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @profile.image %>
+</p>
+
+<p>
+  <strong>Lol:</strong>
+  <%= @profile.lol_id %>
+</p>
+
+<p>
+  <strong>Verification key:</strong>
+  <%= @profile.verification_key %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @profile.user %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

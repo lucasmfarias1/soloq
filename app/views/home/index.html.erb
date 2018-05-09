@@ -1,8 +1,8 @@
 <h1>Home#index</h1>
 
-<% @users.each do |user| %>
-  <%= image_tag user.badge, size: '30x30' %>
-  <%= link_to user.summoner_name, profile_path(user) %>
-  <span class="badge badge-secondary"><%= user.tier %> <%= user.rank %></span>
+<% @profiles.each do |profile| %>
+  <%= image_tag profile.badge, size: '30x30' %>
+  <%= link_to profile.name, profile_path(profile) %>
+  <span class="badge badge-secondary"><%= profile.tier %> <%= profile.rank %></span>
   <br>
 <% end %>

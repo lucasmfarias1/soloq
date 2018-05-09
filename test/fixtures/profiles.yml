@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  tier: MyString
+  rank: MyString
+  image: MyString
+  lol_id: MyString
+  verification_key: MyString
+  user: one
+
+two:
+  name: MyString
+  tier: MyString
+  rank: MyString
+  image: MyString
+  lol_id: MyString
+  verification_key: MyString
+  user: two
