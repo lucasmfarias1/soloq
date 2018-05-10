@@ -4,11 +4,15 @@ class HomeController < ApplicationController
   before_action :authenticate_user!, except: [:welcome]
 
   def welcome
+    unless current_user
+      redirect_to new_user_session_path
+      return
+    end
+
     @user = current_user
     if @user.profile
       redirect_to home_path
     elsif @user
-
       # generate_key
       @profile = Profile.create(verification_key: 'soloq09caef7a')
       @user.profile = @profile

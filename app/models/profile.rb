@@ -5,6 +5,6 @@ class Profile < ApplicationRecord
   validates :image, file_size: { less_than: 1.megabytes }
 
   def badge
-    self.tier ? "#{self.tier.downcase}_badge.png" : 'diamond_badge.png'
+    self.tier ? "#{self.tier.downcase}_badge.png" : 'unranked_badge.png'
   end
 end

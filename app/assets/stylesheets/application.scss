@@ -2,6 +2,18 @@
 
 body {
   overflow-x: hidden;
+  font-size: 100%;
+}
+
+a {
+  color: #111;
+}
+
+a:hover {
+
+}
+
+h1 {
 }
 
 #wrapper {
@@ -136,10 +148,43 @@ body {
 
 
  // For home
+.post {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #aaa;
+}
 
-#sidebar-card {
-  text-align: center;
-  color: #eee;
+.post-face {
+  border-radius: 50%;
+  max-width: 80px;
+  width: 100%;
+  padding: 0;
+}
+
+.post-face-box {
+  padding: 0;
+  margin: 5px;
+  display: inline-block;
+  float: left;
+  width: 70px;
+}
+
+.post-body {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  float: left;
+
+  width: 73%;
+}
+
+.container {
+  padding: 0;
+}
+
+.notice, .alert {
+  padding: 0;
+  margin: 0;
 }
 
  // For verify

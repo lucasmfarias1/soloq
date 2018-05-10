@@ -1,8 +1,21 @@
-<h1>Home#index</h1>
+<h1>SoloQ</h1>
 
-<% @profiles.each do |profile| %>
-  <%= image_tag profile.badge, size: '30x30' %>
-  <%= link_to profile.name, profile_path(profile) %>
-  <span class="badge badge-secondary"><%= profile.tier %> <%= profile.rank %></span>
-  <br>
-<% end %>
+<div class="container">
+
+  <% @profiles.each do |profile| %>
+    <div class="post row align-items-start">
+
+      <%= link_to profile_path(profile), class: 'post-face-box' do %>
+        <%= image_tag profile.image.url, class: 'post-face' %>
+      <% end %>
+
+      <div class="post-body">
+        <strong><%= link_to profile.name, profile_path(profile) %></strong>
+        <%= image_tag profile.badge, size: '30x30' %>
+        <span class="badge badge-secondary"><%= profile.tier %> <%= profile.rank %></span>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since</p>
+      </div>
+    </div>
+  <% end %>
+
+</div>

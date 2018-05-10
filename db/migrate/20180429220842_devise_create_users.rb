@@ -3,16 +3,6 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :users do |t|
-      # Verified summoner name and other LoL stuff
-      t.string :summoner_name
-      t.string :summoner_id
-      t.string :verification_key
-      t.string :tier
-      t.string :rank
-
-      # Display Picture
-      t.string :image
-
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

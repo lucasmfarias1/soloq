@@ -1,18 +1,25 @@
 <h1>Vincular Summoner</h1>
 
-<% unless @profile.name %>
-  Código: <%= @key %>
+<% if @profile.name %>
+  <p>
+    Summoner atualmente vinculado: <strong><%= @profile.name %></strong>
+    <span class="badge badge-secondary"><%= @profile.tier %> <%= @profile.rank %></span>
+    <br>
+  </p>
 
-  <%= form_for @profile, url: {action: 'confirm_verify'} do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.submit 'Vincular', class: 'btn btn-primary' %>
-  <% end %>
-
+  <p>Caso queira vincular um summoner diferente, basta refazer o processo.</p>
   <br>
-
-  <%= image_tag 'verify_guide2.jpg', id: 'verify_guide' %>
-<% else %>
-  <%= link_to "Desvincular '#{@profile.name}'", verify_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 <% end %>
+
+Código: <%= @key %>
+
+<%= form_for @profile, url: {action: 'confirm_verify'} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit 'Vincular', class: 'btn btn-primary' %>
+<% end %>
+
+<br>
+
+<%= image_tag 'verify_guide2.jpg', id: 'verify_guide' %>
