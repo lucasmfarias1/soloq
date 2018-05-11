@@ -52,10 +52,10 @@
 
           <% if current_user %>
             <%= current_user.email %> -
-            <%= current_user.summoner_name %> -
-            <%= current_user.summoner_id %> -
-            <%= current_user.tier %>
-            <%= current_user.rank %> -
+            <%= current_user.profile.name %> -
+            <%= current_user.profile.lol_id %> -
+            <%= current_user.profile.tier %>
+            <%= current_user.profile.rank %> -
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
           <% else %>
             <%= link_to 'Login', new_user_session_path %>
@@ -64,8 +64,10 @@
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
 
-          <%= yield %>
 
+          <div class="container" id="main">
+            <%= yield %>
+          </div>
         </div>
       </div>
       <!-- /#page-content-wrapper -->
