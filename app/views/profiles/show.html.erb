@@ -5,9 +5,14 @@
   <%= image_tag @profile.badge, size: '30x30' %>
 </div>
 
+<div id="profile-posts">
+  <% @profile.posts.each do |post| %>
+    <%= post.body %><br>
+  <% end %>
+</div>
+
 <div id="profile-controls">
   <% if current_user == @profile.user %>
-  <%= link_to 'Edit', edit_profile_path(@profile) %> |
+    <%= link_to 'Edit', edit_profile_path(@profile) %> |
   <% end %>
-  <%= link_to 'Back', profiles_path %>
 </div>

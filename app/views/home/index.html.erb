@@ -1,17 +1,22 @@
 <h1>SoloQ</h1>
 
-  <% @profiles.each do |profile| %>
-    <div class="post row align-items-start">
+<%= render 'posts/form', post: @post %>
 
-      <%= link_to profile_path(profile), class: 'post-face-box' do %>
-        <%= image_tag profile.image.url, class: 'post-face' %>
-      <% end %>
+<% @posts.each do |post| %>
+  <div class="post row align-items-start">
 
-      <div class="post-body">
-        <strong><%= link_to profile.name, profile_path(profile) %></strong>
-        <%= image_tag profile.badge, size: '30x30' %>
-        <span class="badge badge-secondary"><%= profile.tier %> <%= profile.rank %></span>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since</p>
-      </div>
+    <%= link_to profile_path(post.profile), class: 'post-face-box' do %>
+      <%= image_tag post.profile.image.url, class: 'post-face' %>
+    <% end %>
+
+    <div class="post-body">
+      <strong><%= link_to post.profile.name, profile_path(post.profile) %></strong>
+      <%= image_tag post.profile.badge, size: '30x30' %>
+      <span class="badge badge-secondary"><%= post.profile.tier %> <%= post.profile.rank %></span>
+      <p><%= post.body %></p>
     </div>
-  <% end %>
+    <% if post.profile == current_user.profile %>
+      <%= link_to 'X', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+<% end %>

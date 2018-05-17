@@ -22,7 +22,8 @@ class HomeController < ApplicationController
   end
 
   def index
-    @profiles = Profile.all
+    @posts = Post.all
+    @post = Post.new
   end
 
   def verify
