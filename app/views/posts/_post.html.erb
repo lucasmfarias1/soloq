@@ -1,0 +1,16 @@
+<div class="post row align-items-start">
+
+  <%= link_to profile_path(post.profile), class: 'post-face-box' do %>
+    <%= image_tag post.profile.image.url, class: 'post-face' %>
+  <% end %>
+
+  <div class="post-body">
+    <strong><%= link_to post.profile.name, profile_path(post.profile) %></strong>
+    <%= image_tag post.profile.badge, size: '30x30' %>
+    <span class="badge badge-secondary"><%= post.profile.tier %> <%= post.profile.rank %></span>
+    <p><%= post.body %></p>
+  </div>
+  <% if post.profile == current_user.profile %>
+    <%= link_to 'x', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>

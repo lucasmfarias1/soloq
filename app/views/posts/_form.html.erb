@@ -12,11 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :post_body, size: '50x3' %>
+    <%= form.text_area :body, id: :post_body %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Postar', class: 'btn btn-primary' %>
   </div>
 <% end %>
