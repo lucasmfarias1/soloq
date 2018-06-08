@@ -1,7 +1,9 @@
 <h1>SoloQ</h1>
 
-<%= render 'posts/form', post: @post %>
+  <%= render 'posts/form', post: @post %>
 
-<%= render @posts %>
+<div id="posts">
+  <%= render @posts %>
+</div>
 
-<%= paginate @posts %>
+<%= link_to_next_page @posts, 'Load More', :remote => true, :id=>"load_more_link" %>

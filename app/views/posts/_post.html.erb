@@ -8,6 +8,7 @@
     <strong><%= link_to post.profile.name, profile_path(post.profile) %></strong>
     <%= image_tag post.profile.badge, size: '30x30' %>
     <span class="badge badge-secondary"><%= post.profile.tier %> <%= post.profile.rank %></span>
+    <span><%= post.created_at.strftime("%b %d, %Y %H:%M") %></span>
     <p><%= post.body %></p>
   </div>
   <% if post.profile == current_user.profile %>

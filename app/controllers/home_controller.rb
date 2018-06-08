@@ -22,7 +22,7 @@ class HomeController < ApplicationController
   end
 
   def index
-    @posts = Post.order(:created_at).page params[:page]
+    @posts = Post.order('created_at DESC, id DESC').page(params[:page]).per(10)
     @post = Post.new
   end
 
