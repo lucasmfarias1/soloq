@@ -232,6 +232,12 @@ div#profile-name {
   float: left;
   border: 1px solid #eee;
   padding: 5px;
+  width: 100%;
+}
+
+div#profile-posts {
+  float: left;
+  width: 100%;
 }
 
 div#profile-name p {
@@ -245,4 +251,12 @@ div#profile-name h2 {
 div#profile-controls {
   float: left;
   clear: left;
+}
+
+@media only screen and (max-width: 630px) {
+  #main div#profile-name {
+  }
+
+  #main div#profile-posts {
+  }
 }

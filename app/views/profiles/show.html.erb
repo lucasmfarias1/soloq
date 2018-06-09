@@ -6,9 +6,7 @@
 </div>
 
 <div id="profile-posts">
-  <% @profile.posts.each do |post| %>
-    <%= post.body %><br>
-  <% end %>
+  <%= render @profile.posts %>
 </div>
 
 <div id="profile-controls">
